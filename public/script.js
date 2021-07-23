@@ -26,7 +26,7 @@ let genres = [{"id":28,"name":"Action"},{"id":12,"name":"Adventure"},{"id":16,"n
 
 const createMovieCard = (movie) =>{
   let bulmaElement = `<div class="card">
-  <div id=${movie.id} class="card-image movie">
+  <div  class="card-image movie">
     <figure class="image">
       <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="Placeholder image">
     </figure>
@@ -38,9 +38,9 @@ const createMovieCard = (movie) =>{
       <div class="media-content">
         <p class="title is-4">${movie.title}</p>
         <p class="subtitle is-6">${movie.vote_average}</p>
-      </div>
-           <figure class="image is-48x48">
-          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+      </div">
+      <figure id=${movie.id} class="image is-48x48 grey">
+          <img src="https://cdn.glitch.com/2b21742c-ddee-4947-8366-6dd9ffc874da%2Fthumbnails%2F1200px-Gold_Star.svg.png?1627061914621" alt="Placeholder image">
       </figure>
     </div>
     
@@ -84,6 +84,12 @@ searchButton.addEventListener("click", e => {
           e.classList.add("favorited");
         })
       })
+      document.querySelectorAll("figure").forEach((ev)=>{
+        ev.addEventListener("click",(movie)=>{
+          ev.classList.toggle("grey");
+          console.log(ev.id)
+          favArray.push(ev.id)
+        })
+      })
     });
 });
-

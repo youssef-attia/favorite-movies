@@ -41,3 +41,11 @@ img {
 
 
 }
+
+
+.grey {
+    opacity: 0.6;
+    filter: alpha(opacity=40); /* msie */
+     filter: grayscale(100%);
+  
+}
